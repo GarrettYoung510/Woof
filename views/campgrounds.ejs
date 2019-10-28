@@ -1,12 +1,40 @@
 <% include partials/header %>
+<div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Welcome to the Campgrounds Page!</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo distinctio
+        necessitatibus pariatur obcaecati architecto porro excepturi debitis
+        libero adipisci beatae praesentium similique suscipit quibusdam numquam
+        voluptates, vitae ipsum sapiente ipsam!
+      </p>
+      <p>
+        <a href="/campgrounds/new" class="btn btn-primary btn-lg"
+          >Add New Campground</a
+        >
+      </p>
+    </div>
+  </header>
 
-<h1>Another page</h1>
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>Our Most Popular Campgrounds</h3>
+    </div>
+  </div>
 
-<% campgrounds.forEach(campground => {
-    %>
-        <h4><%= campground.name %></h4>
-        <img src="<%= campground.image %>" alt="">
-    <%
-}) %>
+  <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+    <% campgrounds.forEach(campground => { %>
+    <div class="col-md-3 col-sm-6">
+      <div class="card">
+        <img src="<%= campground.image %>" />
+        <div class="caption">
+          <h4><%= campground.name %></h4>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</div>
 
 <% include partials/footer %>
