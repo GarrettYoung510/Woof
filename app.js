@@ -1,7 +1,10 @@
-const express    = require("express"),
-      app        = express(),
-      bodyParser = require("body-parser"),
-      mongoose   = require("mongoose");
+const express = require("express"),
+  app = express(),
+  bodyParser = require("body-parser"),
+  mongoose = require("mongoose"),
+  Campground = require("./models/campground"),
+  Comment = require("./models/comment"),
+  seedDB = require("./seeds");
 
 mongoose.connect("mongodb://localhost/yelp_camp", {
   useUnifiedTopology: true,
@@ -9,28 +12,9 @@ mongoose.connect("mongodb://localhost/yelp_camp", {
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
-
-//  schema setup
-const campgroundSchema = new mongoose.Schema({
-  name:        String,
-  image:       String,
-  description: String
-});
-
-const Campground = mongoose.model("Campground", campgroundSchema);
-
-// Campground.create(
-//   {
-//     name: "Salmon Creek",
-//     image: "http://lorempixel.com/400/200/"
-//   }, function(err, campground) {
-//     if(err) {
-//       console.log(err);
-//     } else {
-//       console.log("newly created campground: ");
-//       console.log(campground);
-//     }
-// });
+// __dirname is always where it lives
+app.use(express.static(__dirname + "/public"));
+seedDB();
 
 app.get("/", (req, res) => {
   res.render("landing");
@@ -42,7 +26,7 @@ app.get("/campgrounds", (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.render("index", { campgrounds: allCampgrounds });
+      res.render("campgrounds/index", { campgrounds: allCampgrounds });
     }
   });
 });
@@ -50,10 +34,10 @@ app.get("/campgrounds", (req, res) => {
 app.post("/campgrounds", (req, res) => {
   // res.send("you hit the post route");
   // get data from form and add to campgrounds array
-  const name        = req.body.name,
-        image       = req.body.image,
-        desc        = req.body.description,
-      newCampground = { name: name, image: image, description: desc };
+  const name = req.body.name,
+    image = req.body.image,
+    desc = req.body.description,
+    newCampground = { name: name, image: image, description: desc };
   // create a new campground and save to DB
   Campground.create(newCampground, (err, newlyCreated) => {
     if (err) {
@@ -66,19 +50,60 @@ app.post("/campgrounds", (req, res) => {
 });
 
 app.get("/campgrounds/new", (req, res) => {
-  res.render("new.ejs");
+  res.render("campgrounds/new");
 });
 
 // be sure to declare this after ^ otherwise campgrounds/new won't work properly
 // shows more info about specific campground
 app.get("/campgrounds/:id", (req, res) => {
   // find campground with provided ID
-  Campground.findById(req.params.id, (err, foundCampground) => {
+  Campground.findById(req.params.id)
+    .populate("comments")
+    .exec((err, foundCampground) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(foundCampground);
+        // render show template w/ that specific campground
+        res.render("campgrounds/show", { campground: foundCampground });
+      }
+    });
+});
+
+// =================
+// COMMENTS ROUTES
+// =================
+
+app.get("/campgrounds/:id/comments/new", (req, res) => {
+  // find campground by id
+  Campground.findById(req.params.id, (err, campground) => {
     if (err) {
       console.log(err);
     } else {
-      // render show template w/ that specific campground
-      res.render("show", { campground: foundCampground });
+      res.render("comments/new", { campground });
+    }
+  });
+});
+
+app.post("/campgrounds/:id/comments", (req, res) => {
+  // lookup campground using ID
+  Campground.findById(req.params.id, (err, campground) => {
+    if (err) {
+      console.log(err);
+      res.redirect("/campgrounds");
+    } else {
+      // create new comment
+      Comment.create(req.body.comment, (err, comment) => {
+        if (err) {
+          console.log(err);
+        } else {
+          campground.comments.push(comment);
+          campground.save();
+          res.redirect(`/campgrounds/${campground._id}`);
+        }
+      });
+      // connect new comment to campground
+      // redirect campground show page
     }
   });
 });
