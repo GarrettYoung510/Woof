@@ -13,6 +13,27 @@ const isLoggedIn = (req, res, next) => {
   res.redirect("/login");
 };
 
+const checkCommentOwnership = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    Comment.findById(req.params.comment_id, (err, foundComment) => {
+      if (err) {
+        res.redirect("back");
+      } else {
+        // if user logged in, does user own the comment?
+        // cannot use === because mongoose sends over an object to compare
+        if (foundComment.author.id.equals(req.user._id)) {
+          // moves onto next part of code
+          next();
+        } else {
+          res.redirect("back");
+        }
+      }
+    });
+  } else {
+    res.redirect("back");
+  }
+};
+
 // =================
 // COMMENTS ROUTES
 // =================
@@ -62,7 +83,7 @@ router.post("/", isLoggedIn, (req, res) => {
 });
 
 // comment edit route
-router.get("/:comment_id/edit", (req, res) => {
+router.get("/:comment_id/edit", checkCommentOwnership, (req, res) => {
   Comment.findById(req.params.comment_id, (err, foundComment) => {
     if (err) {
       res.redirect("back");
@@ -91,7 +112,7 @@ router.put("/:comment_id", (req, res) => {
 });
 
 // comment destroy route
-router.delete("/:comment_id", (req, res) => {
+router.delete("/:comment_id", checkCommentOwnership, (req, res) => {
   Comment.findByIdAndRemove(req.params.comment_id, err => {
     if (err) {
       res.redirect("back");
