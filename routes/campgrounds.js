@@ -92,11 +92,23 @@ router.put("/:id", (req, res) => {
       if (err) {
         res.redirect("/campgrounds");
       } else {
+        // redirect somewhere(show page)
         res.redirect("/campgrounds/" + req.params.id);
       }
     }
   );
-  // redirect somewhere(show page)
+});
+
+// DESTROY ROUTE
+router.delete("/:id", (req, res) => {
+  // find and delete
+  Campground.findByIdAndRemove(req.params.id, err => {
+    if (err) {
+      res.redirect("/campgounds");
+    } else {
+      res.redirect("/campgrounds");
+    }
+  });
 });
 
 module.exports = router;
