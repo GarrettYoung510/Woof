@@ -33,7 +33,7 @@ const seedDB = () => {
     }
     console.log("removed campgrounds!");
 
-    //   add a few campgrounds
+    // //   add a few campgrounds
     data.forEach(seed => {
       Campground.create(seed, (err, campground) => {
         if (err) {
