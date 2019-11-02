@@ -23,18 +23,11 @@
               </em>
             </p>
             <!-- authorization if user logged in and owns campgrond can delete/edit it -->
-            <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>
-            <a
-              class="btn btn-warning"
-              href="/campgrounds/<%= campground._id %>/edit"
-              >Edit</a
-            >
-            <form
-              class="delete-form"
-              action="/campgrounds/<%= campground._id %>?_method=DELETE"
-              method="POST"
-            >
-              <button class="btn btn-xs btn-danger">Delete</button>
+            <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+              <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+              <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="delete-form">
+                <button class="btn btn-danger">Delete</button>
+              </form>
               <% } %>
             </form>
           </div>
