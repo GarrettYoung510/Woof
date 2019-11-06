@@ -7,10 +7,13 @@
       <!-- <p class="lead">YelpCamp</p> -->
       <div class="list-group">
         <!-- placeholders for now, will have data later -->
-        <li class="list-group-item">Huge Park for Dogs to Play</li>
-        <li class="list-group-item active">Water & Treats Available on Site</li>
-        <li class="list-group-item">Small & Large Dogs Welcome</li>
-        <li class="list-group-item active">Very Popular</li>
+        <li class="list-group-item"><i class="fas fa-tree"></i> Huge Park for Dogs to Play</li>
+        <li class="list-group-item active"><i class="fas fa-bone"></i>
+          Water & Treats Available on Site </i>
+        </li>
+        <li class="list-group-item"><i class="fas fa-dog"></i>
+          Small & Large Dogs Welcome</li>
+        <!-- <li class="list-group-item active">Very Popular</li> -->
       </div>
       <div class="col-md-12">
         <div class="thumbnail">
@@ -35,11 +38,11 @@
           </div>
         </div>
         <div class="well">
-          <div class="text-right">
+          <div class="text-left">
             <a
               class="btn btn-success"
               href="/campgrounds/<%= campground._id %>/comments/new"
-              >Add New Comment</a
+              ><i class="fas fa-plus"></i> Add New Comment</a
             >
           </div>
           <hr />
