@@ -1,13 +1,36 @@
 body {
-  background: purple;
+  background: whitesmoke;
+}
+
+.navbar {
+  background: #6aaf42;
+  color: white;
+}
+
+.titleFont {
+  font-size: 22px;
+  color: #ffcf40;
+  margin: 10px 20px;
+}
+
+a {
+  color: whitesmoke;
+}
+
+.btn {
+  background: #fd7852;
+  color: white;
+}
+
+.jumbotron {
+  background: #99c760;
+  color: white;
 }
 
 .thumbnail img {
+  display: block;
   width: 100%;
-}
-
-.thumbnail {
-  padding: 0;
+  margin: auto;
 }
 
 .thumbnail .caption .full {
@@ -19,5 +42,9 @@ body {
 }
 
 .footer-margin {
+  border-top: 1px dotted indianred;
+  margin-top: 10px;
+  padding-top: 15px;
   height: 100px;
+  background: #6aaf42;
 }
