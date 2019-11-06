@@ -16,7 +16,10 @@ const commentRoutes = require("./routes/comments"),
   campgroundRoutes = require("./routes/campgrounds"),
   authRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost/yelp_camp", {
+  mongoose.connect(  "mongodb://admin:abc123@ds141178.mlab.com:41178/heroku_rm24pkf9",
+// mongoose.connect("mongodb://localhost/yelp_camp", 
+{
+
   useUnifiedTopology: true,
   useNewUrlParser: true
 });
