@@ -1,15 +1,15 @@
 <% include ../partials/header %>
 <div class="formContainer">
-  <h3 style="text-align: center;" class="mb-3">Edit <%= campground.name %></h3>
+  <h3 style="text-align: center;" class="mb-3">Edit <%= DogPark.name %></h3>
   <!-- will refactor styles later -->
   <div style="margin: auto">
-    <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+    <form action="/dogparks/<%= DogPark._id %>?_method=PUT" method="POST">
       <div class="form-group">
         <input
           class="form-control"
           type="text"
-          name="campground[name]"
-          value="<%= campground.name %>"
+          name="DogPark[name]"
+          value="<%= DogPark.name %>"
           required
         />
       </div>
@@ -17,8 +17,8 @@
         <input
           class="form-control"
           type="text"
-          name="campground[image]"
-          value="<%= campground.image %>"
+          name="DogPark[image]"
+          value="<%= DogPark.image %>"
           required
         />
       </div>
@@ -26,8 +26,8 @@
         <input
           class="form-control"
           type="text"
-          name="campground[description]"
-          value="<%= campground.description %>"
+          name="DogPark[description]"
+          value="<%= DogPark.description %>"
           required
         />
       </div>
@@ -35,7 +35,7 @@
         <button class="btn btn-lg">Submit</button>
       </div>
     </form>
-    <a href="/campgrounds" class="text-center">Go Back</a>
+    <a href="/dogparks" class="text-center">Go Back</a>
   </div>
 </div>
 <% include ../partials/footer %>

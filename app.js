@@ -6,23 +6,24 @@ const express = require("express"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
   methodOverride = require("method-override"),
-  Campground = require("./models/campground"),
+  DogPark = require("./models/dogpark"),
   Comment = require("./models/comment"),
   User = require("./models/user"),
   seedDB = require("./seeds");
 
 // routes
 const commentRoutes = require("./routes/comments"),
-  campgroundRoutes = require("./routes/campgrounds"),
+  dogParkRoutes = require("./routes/dogpark"),
   authRoutes = require("./routes/index");
 
-  mongoose.connect(  "mongodb://admin:abc123@ds141178.mlab.com:41178/heroku_rm24pkf9",
-// mongoose.connect("mongodb://localhost/yelp_camp", 
-{
-
-  useUnifiedTopology: true,
-  useNewUrlParser: true
-});
+mongoose.connect(
+  "mongodb://admin:abc123@ds141178.mlab.com:41178/heroku_rm24pkf9",
+  // mongoose.connect("mongodb://localhost/yelp_camp",
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  }
+);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 // __dirname is always where it lives
@@ -54,8 +55,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/", authRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/dogparks", dogParkRoutes);
+app.use("/dogparks/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT || 3000, process.env.IP, () => {
   console.log("Server has Started!");

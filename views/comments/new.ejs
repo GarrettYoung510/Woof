@@ -1,10 +1,10 @@
 <% include ../partials/header %>
 
 <div class="formContainer">
-  <!-- will refactor styles later -->
-  <h3 style="text-align: center;" class="mb-3">Add New Comment to <br> <%= campground.name %></h3>
+
+  <h3 style="text-align: center;" class="mb-3">Add New Comment to <br> <%= dogPark.name %></h3>
     <div style="margin: auto">
-      <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+      <form action="/dogparks/<%= dogPark._id %>/comments" method="POST">
         <div class="form-group">
           <input
             class="form-control"
@@ -29,7 +29,7 @@
         
       </div> -->
       </form>
-      <a href="/campgrounds" class="text-center"><i class="fas fa-long-arrow-alt-left"></i> Go Back</a>
+      <a href="/dogparks" class="text-center"><i class="fas fa-long-arrow-alt-left"></i> Go Back</a>
     </div>
   </div>
 
