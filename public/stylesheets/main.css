@@ -3,6 +3,7 @@ body {
   overflow-x: hidden;
   flex: 1 0 auto;
   height: 100%;
+  zoom: 100%;
 }
 
 .navbar {
