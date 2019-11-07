@@ -1,9 +1,9 @@
 <% include ../partials/header %>
-<div class="container">
+
+<div class="formContainer">
   <!-- will refactor styles later -->
-  <div class="row">
-    <h1 style="text-align: center; padding-right: 10%;">Add New Comment to <br> <%= campground.name %></h1>
-    <div style="width: 50%; margin: 25px auto;">
+  <h3 style="text-align: center;" class="mb-3">Add New Comment to <br> <%= campground.name %></h3>
+    <div style="margin: auto">
       <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
         <div class="form-group">
           <input
@@ -13,7 +13,7 @@
             placeholder="comment"
             required
           />
-          <button class="btn btn-lg btn-primary mt-3">Submit <i class="fas fa-sign-in-alt"></i></button>
+          <button class="btn btn-lg mt-3">Submit <i class="fas fa-sign-in-alt"></i></button>
         </div>
       
       <!-- <div class="form-group">
@@ -32,5 +32,5 @@
       <a href="/campgrounds" class="text-center"><i class="fas fa-long-arrow-alt-left"></i> Go Back</a>
     </div>
   </div>
-</div>
+
 <% include ../partials/footer %>

@@ -1,11 +1,13 @@
 <% include ../partials/header %>
   <header class="jumbotron">
-    <div class="container">
+    <div class="d-block w-75 mx-auto text-right">
       <h1>Welcome to Woof</h1>
       <p>
         A site created for our furry friends.
         <br>
-        See below for selections of Dog Parks or add your own!
+        See below for selections of Dog Parks
+        <br>
+        or add your own!
       </p>
       <p>
         <a href="/campgrounds/new" class="btn btn-lg"
@@ -14,24 +16,23 @@
       </p>
     </div>
   </header>
-<div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <h3>Most Popular Dog Parks</h3>
+      <div class="col-lg-12 ml-4 pl-4 mb-3">
+        <h3>Most Popular Dog Parks</h3>
+      </div>
     </div>
-  </div>
-
+<div class="container">
   <div class="row text-center">
     <% campgrounds.forEach(campground => { %>
     <div class="col-lg-12 mb-3">
-      <div class="thumbnail mt-3 img-thumbnail">
+      <div class="thumbnail mt-3">
         <img src="<%= campground.image %>" />
       </div>
         <div class="caption">
           <h4><%= campground.name %></h4>
         </div>
         <p>
-          <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary"
+          <a href="/campgrounds/<%= campground._id %>" class="btn"
             >More Info <i class="fas fa-info-circle"></i></a>
         </p>
     </div>

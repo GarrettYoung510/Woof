@@ -1,5 +1,5 @@
 body {
-  background-color: #000;
+  background-color: #fd7852;
 }
 
 #landing-header {
@@ -15,10 +15,10 @@ body {
 
 h1 {
   text-shadow:
-		-1px -1px 0 green,
-		1px -1px 0 green,
-		-1px 1px 0 green,
-		1px 1px 0 green;
+		-1px -1px 0 #6aaf42,
+		1px -1px 0 #6aaf42,
+		-1px 1px 0 #6aaf42,
+		1px 1px 0 #6aaf42;
 }
 
 .slideshow {
