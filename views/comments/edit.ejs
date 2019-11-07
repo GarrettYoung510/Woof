@@ -3,7 +3,10 @@
   <!-- will refactor styles later -->
   <h3 style="text-align: center;" class="mb-3">Edit Comment</h3>
   <div style="margin: auto">
-    <form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+    <form
+      action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT"
+      method="POST"
+    >
       <div class="form-group">
         <input
           class="form-control"
@@ -22,9 +25,13 @@
           required
         />
       </div> -->
-        <button class="btn btn-lg mt-3">Submit <i class="fas fa-sign-in-alt"></i></button>
+      <button class="btn btn-lg mt-3">
+        Submit <i class="fas fa-sign-in-alt"></i>
+      </button>
     </form>
-    <a href="/campgrounds" class="text-center">Go Back <i class="fas fa-long-arrow-alt-left"></i></a>
+    <a href="/campgrounds" class="text-center"
+      >Go Back <i class="fas fa-long-arrow-alt-left"></i
+    ></a>
   </div>
 </div>
 <% include ../partials/footer %>
