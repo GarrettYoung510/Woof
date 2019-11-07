@@ -1,15 +1,15 @@
 <% include ../partials/header %>
 <div class="formContainer">
-  <h3 style="text-align: center;" class="mb-3">Edit <%= dogpark.name %></h3>
+  <h3 style="text-align: center;" class="mb-3">Edit <%= DogPark.name %></h3>
   <!-- will refactor styles later -->
   <div style="margin: auto">
-    <form action="/dogparks/<%= dogpark._id %>?_method=PUT" method="POST">
+    <form action="/dogparks/<%= DogPark._id %>?_method=PUT" method="POST">
       <div class="form-group">
         <input
           class="form-control"
           type="text"
-          name="dogpark[name]"
-          value="<%= dogpark.name %>"
+          name="DogPark[name]"
+          value="<%= DogPark.name %>"
           required
         />
       </div>
@@ -17,8 +17,8 @@
         <input
           class="form-control"
           type="text"
-          name="dogpark[image]"
-          value="<%= dogpark.image %>"
+          name="DogPark[image]"
+          value="<%= DogPark.image %>"
           required
         />
       </div>
@@ -26,8 +26,8 @@
         <input
           class="form-control"
           type="text"
-          name="dogpark[description]"
-          value="<%= dogpark.description %>"
+          name="DogPark[description]"
+          value="<%= DogPark.description %>"
           required
         />
       </div>

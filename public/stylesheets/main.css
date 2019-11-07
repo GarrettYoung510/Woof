@@ -1,6 +1,8 @@
 body {
   background: lightgray;
   overflow-x: hidden;
+  flex: 1 0 auto;
+  height: 100%;
 }
 
 .navbar {
@@ -112,3 +114,28 @@ a:hover {
   background: #99c760;
   color: whitesmoke;
 }
+
+#sticky-footer {
+  flex-shrink: none;
+}
+/* 
+@media screen and (max-width: 540px){
+
+  .footer-margin {
+    margin-top: 140px;
+    padding-top: 15px;
+    height: 100px;
+    background: #99c760;
+    color: whitesmoke;
+  }
+}
+
+@media screen and (min-width: 550px){
+  .footer-margin {
+    margin-top: 81px;
+    padding-top: 15px;
+    height: 100px;
+    background: #99c760;
+    color: whitesmoke;
+  }
+} */
