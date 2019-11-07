@@ -118,19 +118,37 @@ a:hover {
 #sticky-footer {
   flex-shrink: none;
 }
-/* 
-@media screen and (max-width: 540px){
 
-  .footer-margin {
-    margin-top: 140px;
-    padding-top: 15px;
-    height: 100px;
-    background: #99c760;
-    color: whitesmoke;
-  }
+
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
-@media screen and (min-width: 550px){
+/* .wrapper {
+  min-height: 42%;
+  margin-bottom: -50px;
+} */
+
+
+
+
+
+
+@media screen and (min-width: 40px){
+
+  .push {
+    margin-top: 60px;
+    height: 40px;
+  }
+
+  .formContainer {
+    margin-top: 50px;
+    height: 50%;
+  }
+}
+/* 
+@media screen and (max-width: 550px){
   .footer-margin {
     margin-top: 81px;
     padding-top: 15px;
@@ -138,4 +156,4 @@ a:hover {
     background: #99c760;
     color: whitesmoke;
   }
-} */
+} */ 
