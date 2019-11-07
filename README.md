@@ -1,4 +1,4 @@
-# [Woof](https://rocky-badlands-55982.herokuapp.com/)
+# [Woof](https://woof-yelp-clone.herokuapp.com/)
 
 ![Live Preview](https://i.imgur.com/HjP0TLH.png)
 
