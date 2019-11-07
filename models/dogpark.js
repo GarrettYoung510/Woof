@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 //  schema setup
-const campgroundSchema = new mongoose.Schema({
+const dogParkSchema = new mongoose.Schema({
   name: String,
   image: String,
   description: String,
@@ -20,4 +20,4 @@ const campgroundSchema = new mongoose.Schema({
   ]
 });
 
-module.exports = mongoose.model("Campground", campgroundSchema);
+module.exports = mongoose.model("DogPark", dogParkSchema);

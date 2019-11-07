@@ -6,14 +6,14 @@ const express = require("express"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
   methodOverride = require("method-override"),
-  Campground = require("./models/campground"),
+  DogPark = require("./models/dogpark"),
   Comment = require("./models/comment"),
   User = require("./models/user"),
   seedDB = require("./seeds");
 
 // routes
 const commentRoutes = require("./routes/comments"),
-  campgroundRoutes = require("./routes/campgrounds"),
+  dogParkRoutes = require("./routes/dogpark"),
   authRoutes = require("./routes/index");
 
 mongoose.connect(
@@ -55,8 +55,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/", authRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/dogparks", dogParkRoutes);
+app.use("/dogparks/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT || 3000, process.env.IP, () => {
   console.log("Server has Started!");
