@@ -1,8 +1,8 @@
 // express router insetad of app
 const express = require("express");
-// merge params from campground and comments together so we can access the :id
+// merge params from dog park and comments together so we can access the :id
 const router = express.Router({ mergeParams: true });
-const Campground = require("../models/campground");
+const DogPark = require("../models/dogpark");
 const Comment = require("../models/comment");
 const middleware = require("../middleware");
 
@@ -12,23 +12,23 @@ const middleware = require("../middleware");
 
 //   comments new
 router.get("/new", middleware.isLoggedIn, (req, res) => {
-  // find campground by id
-  Campground.findById(req.params.id, (err, campground) => {
+  // find dog park by id
+  DogPark.findById(req.params.id, (err, dogPark) => {
     if (err) {
       console.log(err);
     } else {
-      res.render("comments/new", { campground });
+      res.render("comments/new", { dogPark });
     }
   });
 });
 
 //   comments create
 router.post("/", middleware.isLoggedIn, (req, res) => {
-  // lookup campground using ID
-  Campground.findById(req.params.id, (err, campground) => {
+  // lookup dog park using ID
+  DogPark.findById(req.params.id, (err, dogPark) => {
     if (err) {
       console.log(err);
-      res.redirect("/campgrounds");
+      res.redirect("/dogparks");
     } else {
       // create new comment
       Comment.create(req.body.comment, (err, comment) => {
@@ -43,15 +43,15 @@ router.post("/", middleware.isLoggedIn, (req, res) => {
           //   console.log("new comment's username will be" + req.user.username);
           // save comment
           comment.save();
-          campground.comments.push(comment);
-          campground.save();
+          dogPark.comments.push(comment);
+          dogPark.save();
           //   console.log(comment);
           req.flash("success", "Successfully added comment");
-          res.redirect(`/campgrounds/${campground._id}`);
+          res.redirect(`/dogparks/${dogPark._id}`);
         }
       });
-      // connect new comment to campground
-      // redirect campground show page
+      // connect new comment to dog park
+      // redirect dog park show page
     }
   });
 });
@@ -63,7 +63,7 @@ router.get("/:comment_id/edit", (req, res) => {
       res.redirect("back");
     } else {
       res.render("comments/edit", {
-        campground_id: req.params.id,
+        dogPark_id: req.params.id,
         comment: foundComment
       });
     }
@@ -79,7 +79,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, (req, res) => {
       if (err) {
         res.redirect("back");
       } else {
-        res.redirect("/campgrounds/" + req.params.id);
+        res.redirect("/dogparks/" + req.params.id);
       }
     }
   );
@@ -92,7 +92,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, (req, res) => {
       res.redirect("back");
     } else {
       req.flash("success", "Comment deleted");
-      res.redirect("/campgrounds/" + req.params.id);
+      res.redirect("/dogparks/" + req.params.id);
     }
   });
 });

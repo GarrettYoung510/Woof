@@ -10,7 +10,7 @@
         or add your own!
       </p>
       <p>
-        <a href="/campgrounds/new" class="btn btn-lg"
+        <a href="/dogparks/new" class="btn btn-lg"
           ><i class="fas fa-plus"></i> Add Dog Park </i></a
         >
       </p>
@@ -23,16 +23,16 @@
     </div>
 <div class="container">
   <div class="row text-center">
-    <% campgrounds.forEach(campground => { %>
+    <% dogParks.forEach(dogpark => { %>
     <div class="col-lg-12 mb-3">
       <div class="thumbnail mt-3">
-        <img src="<%= campground.image %>" />
+        <img src="<%= dogpark.image %>" />
       </div>
         <div class="caption">
-          <h4><%= campground.name %></h4>
+          <h4><%= dogpark.name %></h4>
         </div>
         <p>
-          <a href="/campgrounds/<%= campground._id %>" class="btn"
+          <a href="/dogparks/<%= dogpark._id %>" class="btn"
             >More Info <i class="fas fa-info-circle"></i></a>
         </p>
     </div>

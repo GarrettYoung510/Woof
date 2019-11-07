@@ -1,23 +1,23 @@
 // refactoring middleware to this file
 
 // dependencies
-const Campground = require("../models/campground");
+const DogPark = require("../models/dogpark");
 const Comment = require("../models/comment");
 
 // obj to store middleware
 let middlewareObj = {};
 
-middlewareObj.checkCampgroundOwnership = (req, res, next) => {
+middlewareObj.checkDogParkOwnership = (req, res, next) => {
   if (req.isAuthenticated()) {
-    Campground.findById(req.params.id, (err, foundCampground) => {
-      if (err || !foundCampground) {
-        req.flash("error", "Campground not found");
+    DogPark.findById(req.params.id, (err, foundDogPark) => {
+      if (err || !foundDogPark) {
+        req.flash("error", "Dog Park not found");
         res.redirect("back");
       } else {
-        // if user logged in, does user own the campground?
-        // console.log(campground.author.id);
+        // if user logged in, does user own the dog park?
+        // console.log(dogpark.author.id);
         // console.log(req.user._id);
-        if (foundCampground.author.id.equals(req.user._id)) {
+        if (foundDogPark.author.id.equals(req.user._id)) {
           // moves onto next part of code
           next();
         } else {
