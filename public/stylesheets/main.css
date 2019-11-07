@@ -138,12 +138,12 @@ html, body {
 @media screen and (min-width: 40px){
 
   .push {
-    margin-top: 60px;
+    margin-top: 160px;
     height: 40px;
   }
 
   .formContainer {
-    margin-top: 50px;
+    margin-top: 150px;
     height: 50%;
   }
 }
