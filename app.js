@@ -16,13 +16,14 @@ const commentRoutes = require("./routes/comments"),
   campgroundRoutes = require("./routes/campgrounds"),
   authRoutes = require("./routes/index");
 
-  mongoose.connect(  "mongodb://admin:abc123@ds141178.mlab.com:41178/heroku_rm24pkf9",
-// mongoose.connect("mongodb://localhost/yelp_camp", 
-{
-
-  useUnifiedTopology: true,
-  useNewUrlParser: true
-});
+mongoose.connect(
+  "mongodb://admin:abc123@ds141178.mlab.com:41178/heroku_rm24pkf9",
+  // mongoose.connect("mongodb://localhost/yelp_camp",
+  {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+  }
+);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 // __dirname is always where it lives
