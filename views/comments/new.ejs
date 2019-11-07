@@ -1,18 +1,21 @@
 <% include ../partials/header %>
-<div class="container">
+
+<div class="formContainer">
   <!-- will refactor styles later -->
-  <h1 style="text-align: center">Add New Comment to <%= campground.name %></h1>
-  <div style="width: 30%; margin: 25px auto;">
-    <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
-      <div class="form-group">
-        <input
-          class="form-control"
-          type="text"
-          name="comment[text]"
-          placeholder="comment"
-          required
-        />
-      </div>
+  <h3 style="text-align: center;" class="mb-3">Add New Comment to <br> <%= campground.name %></h3>
+    <div style="margin: auto">
+      <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+        <div class="form-group">
+          <input
+            class="form-control"
+            type="text"
+            name="comment[text]"
+            placeholder="comment"
+            required
+          />
+          <button class="btn btn-lg mt-3">Submit <i class="fas fa-sign-in-alt"></i></button>
+        </div>
+      
       <!-- <div class="form-group">
         <input
           class="form-control"
@@ -22,11 +25,12 @@
           required
         />
       </div> -->
-      <div class="form-group">
-        <button class="btn btn-lg btn-primary">Submit <i class="fas fa-sign-in-alt"></i></button>
-      </div>
-    </form>
-    <a href="/campgrounds" class="text-center"><i class="fas fa-long-arrow-alt-left"></i> Go Back</a>
+      <!-- <div class="form-group">
+        
+      </div> -->
+      </form>
+      <a href="/campgrounds" class="text-center"><i class="fas fa-long-arrow-alt-left"></i> Go Back</a>
+    </div>
   </div>
-</div>
+
 <% include ../partials/footer %>

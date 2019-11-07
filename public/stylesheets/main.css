@@ -1,17 +1,104 @@
 body {
-  background: purple;
+  background: lightgray;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background: #6aaf42;
+  color: whitesmoke;
+}
+
+.titleFont {
+  font-size: 22px;
+  color: #ffcf40;
+  margin: 10px 20px;
+}
+
+a {
+  color: whitesmoke;
+}
+
+a:hover {
+  color: darkslategray;
+}
+
+.jumbotron .btn {
+  background: #fd7852;
+  color: whitesmoke;
+  border-radius: 15px;
+}
+
+.jumbotron .btn:hover, .form-group .btn:hover{
+  box-shadow: 2px 1px 1px #ffcf40;
+  color: #ffcf40;
+}
+
+.container .btn, .formContainer .btn {
+  background: #ffcf40;
+  color: black;
+  border-radius: 15px;
+}
+
+.container .btn:hover {
+  box-shadow: 2px 1px 1px #fd7852;
+  color: #fd7852;
+}
+
+.jumbotron {
+  background: #99c760;
+  color: whitesmoke;
+  border-radius: 0;
+}
+
+.container {
+  padding: 3% 5%;
+  border-radius: 15px;
+  background: whitesmoke;
+  margin-bottom: 3%;
+}
+
+.formContainer{
+  border-radius: 15px;
+  background: whitesmoke;
+  width: 75%;
+  padding: 3% 3%;
+  margin: 3% auto;
+}
+
+.formContainer a {
+  color: black;
+}
+
+.formContainer a:hover {
+  color: #6aaf42;
 }
 
 .thumbnail img {
+  display: block;
   width: 100%;
+  margin: auto;
+  border-radius: 15px;
 }
 
-.thumbnail {
-  padding: 0;
+.orangeBG {
+  background: #fd7852;
+  color: white;
 }
 
-.thumbnail .caption .full {
-  padding: 9px;
+.list-group {
+  border-radius: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form-group .btn{
+  background: darkslategray;
+  color: white;
+}
+
+.form-control {
+  border-radius: 10px;
+  background: lightgray;
 }
 
 .delete-form {
@@ -19,5 +106,9 @@ body {
 }
 
 .footer-margin {
+  margin-top: 10px;
+  padding-top: 15px;
   height: 100px;
+  background: #99c760;
+  color: whitesmoke;
 }

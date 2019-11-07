@@ -12,11 +12,11 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/public/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/"><i class="fas fa-paw"></i> Woof</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="titleFont" href="/"><i class="fas fa-paw"></i> Woof</a>
         <div class="nav">
           <ul class="navbar-nav mr-auto">
             <% if(!currentUser) { %>
@@ -30,7 +30,7 @@
         </div>
       </div>
     </nav>
-    <div class="container">
+    <div>
       <% if(error && error.length > 0) { %>
         <div class="alert alert-danger" role="alert">
           <%= error %>
