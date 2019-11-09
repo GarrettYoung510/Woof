@@ -69,9 +69,15 @@ router.get("/:id", (req, res) => {
 });
 
 // EDIT DOG PARK ROUTE
-router.get("/:id/edit", middleware.checkDogParkOwnership, (req, res) => {
+router.get("/:id/edit", (req, res) => {
   DogPark.findById(req.params.id, (err, foundDogPark) => {
-    res.render("dogparks/edit", { DogPark: foundDogPark });
+    if (err) {
+      res.redirect("/dogparks");
+    }
+    res.render("dogparks/edit", {
+      DogPark_id: req.params.id,
+      DogPark: foundDogPark
+    });
     // otherwise, redirect
     // if not, redirect
   });
@@ -79,10 +85,12 @@ router.get("/:id/edit", middleware.checkDogParkOwnership, (req, res) => {
 
 // UPDATE DOG PARK ROUTE
 router.put("/:id", middleware.checkDogParkOwnership, (req, res) => {
+// router.put("/:id", (req, res) => {
   // find and update the correct dog park
   DogPark.findByIdAndUpdate(
     req.params.id,
-    req.body.dogPark,
+    req.body.DogPark,
+    { new: true },
     (err, updatedDogPark) => {
       if (err) {
         res.redirect("/dogparks");
