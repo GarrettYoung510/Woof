@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-sm-6 col-md-6 col-lg-6">
       <div class="caption-full text-left ml-3">
-        <h4 class="mt-2">$5.00 per visit</h4>
+        <h4 class="mt-2">$<%= dogPark.price %> per visit</h4>
         <p><%= dogPark.description %></p>
         <p>
           <em class="float-left">
@@ -80,4 +80,6 @@
   <a href="/dogparks" class="ml-3"><i class="fas fa-long-arrow-alt-left"></i> Go Back</a>
 </div>
 
-<% include ../partials/footer %>
+<div class="footerForms">
+  <% include ../partials/footer %>
+</div>
