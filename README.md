@@ -4,7 +4,7 @@
 
 ## Reasoning/Motivation
 
-Built in an attempt to clone yelp, but for dog parks!
+Built in an attempt to clone yelp, but for dog parks! CRUD functionality for dog parks and comments. User sign up and authentication.
 
 ## Technologies Used
 * JavaScript
@@ -19,6 +19,7 @@ Built in an attempt to clone yelp, but for dog parks!
 ## Challenges
 
 * Random bugs to smooth out
+* Sticky footer on all devices
 
 ## Next Steps
 
