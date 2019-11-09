@@ -5,7 +5,8 @@ const DogPark = require("../models/dogpark");
 const middleware = require("../middleware");
 
 // INDEX - dog parks
-router.get("/", middleware.isLoggedIn, (req, res) => {
+// router.get("/", middleware.isLoggedIn, (req, res) => {
+router.get("/", (req, res) => {
   // get all dog parks from DB
   DogPark.find({}, (err, allDogParks) => {
     if (err) {
@@ -22,11 +23,12 @@ router.post("/", (req, res) => {
   const name = req.body.name,
     image = req.body.image,
     desc = req.body.description,
+    price = req.body.price,
     author = {
       id: req.user._id,
       username: req.user.username
     },
-    newDogPark = { name, image, description: desc, author };
+    newDogPark = { name, image, description: desc, author, price };
   // console.log(req.user);
 
   // create a new dog park and save to DB
@@ -41,7 +43,7 @@ router.post("/", (req, res) => {
   });
 });
 
-router.get("/new", (req, res) => {
+router.get("/new", middleware.isLoggedIn, (req, res) => {
   res.render("dogparks/new");
 });
 
@@ -67,9 +69,15 @@ router.get("/:id", (req, res) => {
 });
 
 // EDIT DOG PARK ROUTE
-router.get("/:id/edit", middleware.checkDogParkOwnership, (req, res) => {
+router.get("/:id/edit", (req, res) => {
   DogPark.findById(req.params.id, (err, foundDogPark) => {
-    res.render("dogparks/edit", { DogPark: foundDogPark });
+    if (err) {
+      res.redirect("/dogparks");
+    }
+    res.render("dogparks/edit", {
+      DogPark_id: req.params.id,
+      DogPark: foundDogPark
+    });
     // otherwise, redirect
     // if not, redirect
   });
@@ -77,10 +85,12 @@ router.get("/:id/edit", middleware.checkDogParkOwnership, (req, res) => {
 
 // UPDATE DOG PARK ROUTE
 router.put("/:id", middleware.checkDogParkOwnership, (req, res) => {
+// router.put("/:id", (req, res) => {
   // find and update the correct dog park
   DogPark.findByIdAndUpdate(
     req.params.id,
-    req.body.dogPark,
+    req.body.DogPark,
+    { new: true },
     (err, updatedDogPark) => {
       if (err) {
         res.redirect("/dogparks");
