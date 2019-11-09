@@ -31,20 +31,32 @@ a:hover {
   border-radius: 15px;
 }
 
-.jumbotron .btn:hover, .form-group .btn:hover{
+.jumbotron .btn:hover {
+  box-shadow: 2px 1px 1px darkslategray;
+  color: darkslategray;
+}
+
+.form-group .btn:hover {
   box-shadow: 2px 1px 1px #ffcf40;
   color: #ffcf40;
 }
 
-.container .btn, .formContainer .btn {
+.container .btn {
   background: #ffcf40;
   color: black;
   border-radius: 15px;
 }
 
+.formContainer .btn {
+  background: #ffcf40;
+  color: black;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .container .btn:hover {
-  box-shadow: 2px 1px 1px #fd7852;
-  color: #fd7852;
+  box-shadow: 2px 1px 1px darkslategray;
+  color: #6aaf42;
 }
 
 .jumbotron {
@@ -54,13 +66,12 @@ a:hover {
 }
 
 .container {
-  padding: 3% 5%;
+  padding: 3% 5% 1%;
   border-radius: 15px;
   background: whitesmoke;
-  margin-bottom: 3%;
 }
 
-.formContainer{
+.formContainer {
   border-radius: 15px;
   background: whitesmoke;
   width: 75%;
@@ -68,11 +79,13 @@ a:hover {
   margin: 3% auto;
 }
 
-.formContainer a {
+.formContainer a,
+.container a {
   color: black;
 }
 
-.formContainer a:hover {
+.formContainer a:hover,
+.container a:hover {
   color: #6aaf42;
 }
 
@@ -94,13 +107,13 @@ a:hover {
   margin-bottom: 5px;
 }
 
-.form-group .btn{
+.form-group .btn {
   background: darkslategray;
   color: white;
 }
 
 .form-control {
-  border-radius: 10px;
+  border-radius: 5px;
   background: lightgray;
 }
 
@@ -109,7 +122,7 @@ a:hover {
 }
 
 .footer-margin {
-  margin-top: 10px;
+  margin-top: 80px;
   padding-top: 15px;
   height: 100px;
   background: #99c760;
@@ -120,41 +133,23 @@ a:hover {
   flex-shrink: none;
 }
 
-
-html, body {
-  height: 100%;
+html,
+body {
+  height: fit-content;
   margin: 0;
 }
 
-/* .wrapper {
-  min-height: 42%;
-  margin-bottom: -50px;
-} */
+.footerForms {
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+}
 
-
-
-
-
-
+/* 
 @media screen and (min-width: 40px){
 
   .push {
-    margin-top: 160px;
+    margin-top: 80px;
     height: 40px;
   }
-
-  .formContainer {
-    margin-top: 150px;
-    height: 50%;
-  }
-}
-/* 
-@media screen and (max-width: 550px){
-  .footer-margin {
-    margin-top: 81px;
-    padding-top: 15px;
-    height: 100px;
-    background: #99c760;
-    color: whitesmoke;
-  }
-} */ 
+} */
