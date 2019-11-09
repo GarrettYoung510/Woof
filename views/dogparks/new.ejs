@@ -1,44 +1,28 @@
-
 <% include ../partials/header %>
 
-<div class="formContainer">
-  <!-- will refactor styles later -->
-  <h3 style="text-align: center;" class="mb-3">Add a new Dog Park</h3>
-    <div style="margin: auto">
-        <form action="/dogparks/" method="POST">
-          <div class="form-group">
-              <input
-                class="form-control"
-                type="text"
-                name="name"
-                placeholder="name"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                class="form-control"
-                type="text"
-                name="image"
-                placeholder="image url"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <input
-                class="form-control"
-                type="text"
-                name="description"
-                placeholder="description"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <button class="btn btn-lg">Submit <i class="fas fa-sign-in-alt"></i></button>
-            </div>
-            </form>
-      <a href="/dogparks" class="text-center"><i class="fas fa-long-arrow-alt-left"></i> Go Back</a>
-    </div>
-  </div>
+<h3 style="text-align: center;" class="mb-3 mt-4">Add a new Dog Park</h3>
 
-<% include ../partials/footer %>
+<div class="formContainer">
+  <div style="margin: auto">
+    <form action="/dogparks/" method="POST">
+      <div class="form-group mt-3">
+        <input class="form-control" type="text" name="name" placeholder="name" required />
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="image" placeholder="image url" required />
+      </div>
+      <div class="form-group">
+        <input class="form-control" type="text" name="description" placeholder="description" required />
+      </div>
+      <div class="form-group">
+        <button class="btn float-right">Submit <i class="fas fa-sign-in-alt"></i></button>
+        <br>
+      </div>
+    </form>
+    <a href="/dogparks" class=><i class="fas fa-long-arrow-alt-left"></i> Go Back</a>
+  </div>
+</div>
+
+<div class="footerForms">
+  <% include ../partials/footer %>
+</div>
