@@ -49,8 +49,7 @@
     <a
       class="btn mt-3 mb-3"
       href="/dogparks/<%= dogPark._id %>/comments/new"
-      ><i class="fas fa-plus"></i> Add New Comment</a
-    >
+      ><i class="fas fa-plus"></i> Add New Comment</a>
         
     <hr />
 
@@ -60,7 +59,8 @@
         <strong>
           <%= comment.author.username %>
         </strong>
-        <span class="pull-right">10 days ago</span>
+
+        <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
         <p>
           <%= comment.text %>
         </p>

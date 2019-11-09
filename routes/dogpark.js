@@ -1,6 +1,7 @@
 // express router insetad of app
 const express = require("express");
 const router = express.Router();
+const moment = require("moment");
 const DogPark = require("../models/dogpark");
 const middleware = require("../middleware");
 
@@ -62,7 +63,8 @@ router.get("/:id", (req, res) => {
         // render show template w/ that specific Dog Park
         res.render("dogparks/show", {
           dogPark: foundDogPark,
-          currentUser: req.user
+          currentUser: req.user,
+          moment
         });
       }
     });
